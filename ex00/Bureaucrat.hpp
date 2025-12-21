@@ -3,6 +3,21 @@
 #include <iostream>
 #include <cstdlib>
 
+
+class GradeTooHighException : public std::exception 
+{
+    const char* what() const throw() 
+    {
+        return "Grade is too high!";
+    }
+};
+
+class GradeTooLowException : public std::exception {
+    const char* what() const throw() {
+        return "Grade is too low!";
+    }
+};
+
 class Bureaucrat
 {
     private:
@@ -10,14 +25,26 @@ class Bureaucrat
         int grade;
     public:
         Bureaucrat();
+        Bureaucrat(const Bureaucrat& original);
+        Bureaucrat& operator=(const Bureaucrat& original);
         Bureaucrat(std::string newName, int in_grade);
         std::string getName() const;
-        int getGrade();
-        std::out_of_range GradeTooHighException();
-        std::out_of_range GradeTooLowException();
+        class GradeTooHighException : public std::exception 
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+        class GradeTooLowException : public std::exception 
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+        int getGrade() const;
         void betterGrade();
         void worseGrade();
-        ~Bureaucrat();
 
+    ~Bureaucrat();
 };
+
+std::ostream& operator<<(std::ostream& COUT, const Bureaucrat& myobj);
 #endif

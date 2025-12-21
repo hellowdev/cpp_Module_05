@@ -2,6 +2,7 @@
 #define BUREAUCRAT_HPP
 #include <iostream>
 #include <cstdlib>
+
 class Bureaucrat
 {
     private:
@@ -9,11 +10,11 @@ class Bureaucrat
         int grade;
     public:
         Bureaucrat();
-        Bureaucrat(std::string newName);
+        Bureaucrat(std::string newName, int in_grade);
         std::string getName() const;
         int getGrade();
-        void GradeTooHighException();
-        void GradeTooLowException();
+        std::out_of_range GradeTooHighException();
+        std::out_of_range GradeTooLowException();
         void betterGrade();
         void worseGrade();
         ~Bureaucrat();

@@ -2,14 +2,22 @@
 
 int main()
 {
-    Bureaucrat x;
     try
     {
-        x.betterGrade();
-    }
-    catch (std::exception & e)
-    {
+        Bureaucrat x("test", 151);
+        try
+        {
+            std::cout << "heree\n";
+            x.worseGrade();
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
         
     }
-    std::cout << x.getGrade() << '\n';
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }

@@ -1,32 +1,23 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : name("Default"), grade(150){}
+
+Bureaucrat::Bureaucrat(std::string newName, int in_grade) : name(newName)
 {
-    std::srand(time(NULL));
-    grade = (std::rand() % 20) + 1;
-    if (grade < 1)
-        GradeTooHighException();
-    else if (grade > 150)
-        GradeTooLowException();
+    if (in_grade < 1)
+        throw GradeTooHighException();
+    if (in_grade > 150)
+        throw GradeTooLowException();
+    this->grade = in_grade;
 }
 
-Bureaucrat::Bureaucrat(std::string newName) : name(newName)
+std::out_of_range Bureaucrat::GradeTooHighException()
 {
-    std::srand(time(NULL));
-    grade = (std::rand() % 20) + 1;
-    if (grade < 1)
-        GradeTooHighException();
-    else if (grade > 150)
-        GradeTooLowException();
+    return std::out_of_range("too High range");
 }
-
-void Bureaucrat::GradeTooHighException()
+std::out_of_range Bureaucrat::GradeTooLowException()
 {
-    throw "Too High\n";
-}
-void Bureaucrat::GradeTooLowException()
-{
-    throw "Too Low\n";
+    return std::out_of_range("too low range");
 }
 
 std::string Bureaucrat::getName() const
@@ -41,11 +32,15 @@ int Bureaucrat::getGrade()
 
 void Bureaucrat::betterGrade()
 {
+    if (grade - 1 < 1)
+        throw std::out_of_range("too High range");
     grade--;
 }
 
 void Bureaucrat::worseGrade()
 {
+    if (grade + 1 > 150)
+        throw std::out_of_range("too Low range");
     grade++;
 }
 

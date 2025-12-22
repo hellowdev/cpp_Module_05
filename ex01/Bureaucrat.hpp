@@ -1,0 +1,50 @@
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
+#include <iostream>
+#include <cstdlib>
+
+
+class GradeTooHighException : public std::exception 
+{
+    const char* what() const throw() 
+    {
+        return "Grade is too high!";
+    }
+};
+
+class GradeTooLowException : public std::exception {
+    const char* what() const throw() {
+        return "Grade is too low!";
+    }
+};
+
+class Bureaucrat
+{
+    private:
+        const std::string name;
+        int grade;
+    public:
+        Bureaucrat();
+        Bureaucrat(const Bureaucrat& original);
+        Bureaucrat& operator=(const Bureaucrat& original);
+        Bureaucrat(std::string newName, int in_grade);
+        std::string getName() const;
+        class GradeTooHighException : public std::exception 
+        {
+            public:
+                const char* what() const throw();
+        };
+        class GradeTooLowException : public std::exception 
+        {
+            public:
+                const char* what() const throw();
+        };
+        int getGrade() const;
+        void betterGrade();
+        void worseGrade();
+
+    ~Bureaucrat();
+};
+
+std::ostream& operator<<(std::ostream& COUT, const Bureaucrat& myobj);
+#endif

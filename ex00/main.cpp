@@ -1,16 +1,32 @@
 #include "Bureaucrat.hpp"
 
+
 int main()
 {
-    
     try
     {
-        Bureaucrat x("testName", 1);
+        Bureaucrat x("testName", 0);
         x.betterGrade();
-        std::cout << x;
     }
     catch (std::exception & e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        Bureaucrat x("NewName", 150);
+        x.worseGrade();
+    }
+    catch (std::exception & k)
+    {
+        std::cerr << k.what() << '\n';
+    }
+    try
+    {
+        Bureaucrat x("idkName", 0);
+    }
+    catch(std::exception& b)
+    {
+        std::cerr << b.what() << '\n';
     }
 }

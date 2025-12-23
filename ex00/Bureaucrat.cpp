@@ -19,7 +19,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& original)
     return *this;
 }
 
-const char* Bureaucrat:: GradeTooHighException::what() const throw() 
+const char* Bureaucrat::GradeTooHighException::what() const throw() 
 {
     return "Grade is too high!";
 }

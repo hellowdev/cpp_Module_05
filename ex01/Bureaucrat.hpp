@@ -2,21 +2,7 @@
 #define BUREAUCRAT_HPP
 #include <iostream>
 #include <cstdlib>
-
-
-class GradeTooHighException : public std::exception 
-{
-    const char* what() const throw() 
-    {
-        return "Grade is too high!";
-    }
-};
-
-class GradeTooLowException : public std::exception {
-    const char* what() const throw() {
-        return "Grade is too low!";
-    }
-};
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -40,9 +26,10 @@ class Bureaucrat
                 const char* what() const throw();
         };
         int getGrade() const;
+        void signForm(Bureaucrat& burr, Form &form);
         void betterGrade();
         void worseGrade();
-
+        void check(Bureaucrat& burr, Form &obj);
     ~Bureaucrat();
 };
 

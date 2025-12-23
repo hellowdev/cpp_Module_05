@@ -4,7 +4,7 @@ NAME = myprog
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Bureaucrat.cpp  Form.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
@@ -13,7 +13,7 @@ all: $(NAME)
 $(NAME) : $(OBJ)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	
-%.o : %.cpp  Bureaucrat.hpp  Form.hpp
+%.o : %.cpp  Bureaucrat.hpp Form.hpp
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean :

@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : name("Default"), grade(150){}
 
@@ -19,7 +20,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& original)
     return *this;
 }
 
-const char* Bureaucrat:: GradeTooHighException::what() const throw() 
+const char* Bureaucrat::GradeTooHighException::what() const throw() 
 {
     return "Grade is too high!";
 }
@@ -51,6 +52,10 @@ void Bureaucrat::worseGrade()
     if (grade + 1 > 150)
         throw GradeTooLowException();
     grade++;
+}
+void Bureaucrat::check(Bureaucrat& burr, Form &obj)
+{
+    obj.beSigned(burr);
 }
 
 std::ostream& operator<<(std::ostream& COUT, const Bureaucrat& myobj)

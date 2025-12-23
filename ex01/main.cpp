@@ -1,16 +1,17 @@
 #include "Bureaucrat.hpp"
 
+
 int main()
 {
-    
     try
     {
-        Bureaucrat x("testName", 1);
-        x.betterGrade();
-        std::cout << x;
+        Bureaucrat b("burr", 6);
+        Form x("form", 5, 2);
+        b.signForm(b, x);
     }
-    catch (std::exception & e)
+    catch (std::exception &e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << '\n';
     }
+    
 }

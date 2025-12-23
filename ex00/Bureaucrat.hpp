@@ -3,21 +3,6 @@
 #include <iostream>
 #include <cstdlib>
 
-
-class GradeTooHighException : public std::exception 
-{
-    const char* what() const throw() 
-    {
-        return "Grade is too high!";
-    }
-};
-
-class GradeTooLowException : public std::exception {
-    const char* what() const throw() {
-        return "Grade is too low!";
-    }
-};
-
 class Bureaucrat
 {
     private:
@@ -42,7 +27,6 @@ class Bureaucrat
         int getGrade() const;
         void betterGrade();
         void worseGrade();
-
     ~Bureaucrat();
 };
 

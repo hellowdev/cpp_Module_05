@@ -53,9 +53,18 @@ void Bureaucrat::worseGrade()
         throw GradeTooLowException();
     grade++;
 }
-void Bureaucrat::check(Bureaucrat& burr, Form &obj)
+
+void Bureaucrat::signForm(Form &form)
 {
-    obj.beSigned(burr);
+   try
+   {
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << '\n';
+   }
+   catch (std::exception& e)
+   {
+		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because " << e.what() << '\n';
+   }
 }
 
 std::ostream& operator<<(std::ostream& COUT, const Bureaucrat& myobj)

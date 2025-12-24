@@ -26,10 +26,9 @@ class Bureaucrat
                 const char* what() const throw();
         };
         int getGrade() const;
-        void signForm(Bureaucrat& burr, Form &form);
+        void signForm(Form &form);
         void betterGrade();
         void worseGrade();
-        void check(Bureaucrat& burr, Form &obj);
     ~Bureaucrat();
 };
 

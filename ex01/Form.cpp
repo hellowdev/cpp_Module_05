@@ -5,77 +5,62 @@ Form::Form() : name("Default"), _signed(0), signGrade(150), executeGrade(5)
 {}
 Form::Form(std::string newName, int signG, int executeG) : name(newName), _signed(0), signGrade(signG), executeGrade(executeG)
 {
-    if (signGrade < 1 || executeGrade < 1)
-        throw GradeTooHighException();
-    else if (signGrade > 150 || executeGrade > 150)
-        throw GradeTooLowException();
-    
+	if (signGrade < 1 || executeGrade < 1)
+		throw GradeTooHighException();
+	else if (signGrade > 150 || executeGrade > 150)
+		throw GradeTooLowException();
+	
 }
-Form::Form(const Form& original) : name(original.name), _signed(original._signed), signGrade(original.signGrade), executeGrade(original.executeGrade)
-{
-}
+Form::Form(const Form& original) : name(original.name), _signed(original._signed), signGrade(original.signGrade), executeGrade(original.executeGrade){}
 Form& Form::operator=(const Form& original)
 {
-    _signed = original._signed;
-    return *this;
+	_signed = original._signed;
+	return *this;
 }
 
 const char* Form::GradeTooHighException:: what() const throw()
 {
-    return "Grade is too high!";
+	return "Grade is too high!";
 }
 
 const char* Form::GradeTooLowException:: what() const throw()
 {
-    return "Grade is too low!";
+	return "Grade is too low!";
 }
 
 std::string Form::getName() const
 {
-    return (name);
+	return (name);
 }
 
 int Form::getSignGrade() const
 {
-    return (signGrade);
+	return (signGrade);
 }
 
 int Form::getexecGrade() const
 {
-    return (executeGrade);
+	return (executeGrade);
 }
 
 void Form::beSigned(Bureaucrat &obj)
 {
-    if (obj.getGrade() > getSignGrade())
-        throw GradeTooLowException();
-    _signed = 1;
+	if (obj.getGrade() > getSignGrade())
+		throw GradeTooLowException();
+	_signed = 1;
+	return ;
 }
 
-
-void Bureaucrat::signForm(Bureaucrat& obj, Form &form)
+bool Form::getSigned() const
 {
-    check(obj, form);
-    if (form.getSignGrade())
-        std::cout << obj.getName() << " signed " << form.getName() << '\n';
-    else
-        std::cout << obj.getName() << "  couldn’t sign " << form.getName() << " idk" << '\n';
-
-
-
+	return _signed;
 }
-// std::ostream& operator<<(std::ostream& COUT, const Form& myobj)
-// {
-//     COUT << myobj.getName() << ", Form grade " << myobj.getGrade() << '\n';
-//     return COUT;
-// }
-
-// void Form::betterGrade()
-// {
-//     if (grade - 1 < 1)
-//         throw GradeTooHighException();
-//     grade--;
-// }
+std::ostream& operator<<(std::ostream& COUT, const Form& myobj)
+{
+	COUT << myobj.getName() << ", Sign grade: " << myobj.getSignGrade()
+	<< " Signature Form: " << myobj.getSigned() << " execute Grade: " << myobj.getexecGrade() << '\n';
+	return COUT;
+}
 
 Form::~Form(){}
 

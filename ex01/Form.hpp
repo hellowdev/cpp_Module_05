@@ -13,11 +13,12 @@ class Form
         Form();
         Form(std::string newName, int signG, int executeG);
         Form(const Form& original);
+        bool getSigned() const;
         Form& operator=(const Form& original); // Only copies _signed status   
         class GradeTooHighException : public std::exception 
         {
-        public:
-            const char* what() const throw();
+            public:
+                const char* what() const throw();
         };
         class GradeTooLowException : public std::exception 
         {
@@ -31,4 +32,4 @@ class Form
     ~Form();
 };
 
-// std::ostream& operator<<(std::ostream& COUT, const Bureaucrat& myobj);
+std::ostream& operator<<(std::ostream& COUT, const Form& myobj);

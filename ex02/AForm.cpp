@@ -12,6 +12,7 @@ AForm::AForm(std::string newName, int signG, int executeG) : name(newName), _sig
 	
 }
 AForm::AForm(const AForm& original) : name(original.name), _signed(original._signed), signGrade(original.signGrade), executeGrade(original.executeGrade){}
+
 AForm& AForm::operator=(const AForm& original)
 {
 	_signed = original._signed;

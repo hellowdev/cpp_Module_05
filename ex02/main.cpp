@@ -1,17 +1,37 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
     try
     {
-        Bureaucrat b("fku", 1);
+        Bureaucrat b("Burr", 1);
         
-        ShrubberyCreationForm sh("targ");
-        b.signForm(sh);
-        sh.execute(b);
+        // ShrubberyCreationForm sh("mytargetFile");
+        // std::cout << sh.getSigned() << '\n';
+        // ShrubberyCreationForm be(sh);
+        // b.signForm(be);
+        // std::cout << sh.getSigned() << '\n';
+        // sh = be;
+        // std::cout << sh.getSigned() << '\n';
+        // sh.execute(b);
         
+        ShrubberyCreationForm sh("alice");
+        sh.beSigned(b);
+        RobotomyRequestForm rob("robot");
+        // rob.beSigned(b)
+        PresidentialPardonForm pres("mr macron");
+        // rob.beSigned(b);
+        // rob.execute(b);
+        // rob.execute(b);
+        // rob.execute(b);
+        // rob.execute(b);
+        b.executeForm(sh);
+        b.executeForm(rob);
+        b.executeForm(pres);
     }
     catch(const std::exception& e)
     {

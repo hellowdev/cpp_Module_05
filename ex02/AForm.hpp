@@ -14,7 +14,7 @@ class AForm
         AForm(std::string newName, int signG, int executeG);
         AForm(const AForm& original);
         bool getSigned() const;
-        AForm& operator=(const AForm& original); // Only copies _signed status   
+        AForm& operator=(const AForm& original);
         class GradeTooHighException : public std::exception 
         {
             public:
@@ -25,12 +25,17 @@ class AForm
             public:
                 const char* what() const throw();
         };
+        class notSigned : public std::exception
+        {
+          public:
+            const char *what() const throw();
+        };
         int getSignGrade() const;
         int getexecGrade() const;
         std::string getName() const;
         void beSigned(Bureaucrat& obj);
         virtual void execute(Bureaucrat const & executor) const = 0;
-    ~AForm();
+    virtual ~AForm();
 };
 
 std::ostream& operator<<(std::ostream& COUT, const AForm& myobj);

@@ -9,6 +9,8 @@ class ShrubberyCreationForm : public AForm
   public:
       ShrubberyCreationForm();
       ShrubberyCreationForm(std::string target);
+      ShrubberyCreationForm(const ShrubberyCreationForm& original);
+      ShrubberyCreationForm& operator=(const ShrubberyCreationForm& original);
       void execute(Bureaucrat const & executor) const;
       class notSigned : public std::exception
       {

@@ -29,7 +29,7 @@ class Bureaucrat
         void signForm(AForm &form);
         void betterGrade();
         void worseGrade();
-        // void executeForm(AForm const & form) const
+        void executeForm(AForm const & form) const;
     ~Bureaucrat();
 };
 

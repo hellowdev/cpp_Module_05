@@ -19,19 +19,19 @@ Intern& Intern::operator=(const Intern& original)
 AForm *Intern::myRobot(std::string target)
 {
     AForm *ab = new RobotomyRequestForm(target);
-    std::cout << "Intern creates " << ab->getName();
+    std::cout << "Intern creates " << ab->getName() << '\n';
     return ab;
 }
 AForm *Intern::myShrubbery(std::string target)
 {
     AForm *ab = new ShrubberyCreationForm(target);
-    std::cout << "Intern creates " << ab->getName();
+    std::cout << "Intern creates " << ab->getName() << '\n';
     return ab;
 }
 AForm *Intern::myPresident(std::string target)
 {
     AForm *ab = new PresidentialPardonForm(target);
-    std::cout << "Intern creates " << ab->getName();
+    std::cout << "Intern creates " << ab->getName() << '\n';
     return ab;
 }
 

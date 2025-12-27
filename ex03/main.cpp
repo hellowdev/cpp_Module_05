@@ -12,14 +12,12 @@ int main()
         Intern someRandomIntern;
         AForm* rrf;
         rrf = someRandomIntern.makeForm("robotomy  request", "Bender");
+        rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
         (void)rrf;
-        Intern cc(someRandomIntern);
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    
-    
-    
+
 }

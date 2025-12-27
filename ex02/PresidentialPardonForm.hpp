@@ -13,9 +13,9 @@ class PresidentialPardonForm : public AForm
     PresidentialPardonForm& operator=(const PresidentialPardonForm& original);
     void execute(Bureaucrat const & executor) const;
     class notSigned : public std::exception
-      {
-          public:
-            const char *what() const throw();
-      };
+    {
+        public:
+          const char *what() const throw();
+    };
     ~PresidentialPardonForm();
 };

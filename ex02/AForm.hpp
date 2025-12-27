@@ -25,11 +25,6 @@ class AForm
             public:
                 const char* what() const throw();
         };
-        class notSigned : public std::exception
-        {
-          public:
-            const char *what() const throw();
-        };
         int getSignGrade() const;
         int getexecGrade() const;
         std::string getName() const;

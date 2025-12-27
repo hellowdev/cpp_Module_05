@@ -21,17 +21,16 @@ int main()
         
         ShrubberyCreationForm sh("alice");
         sh.beSigned(b);
+        b.executeForm(sh);
+        sh.execute(b);
         RobotomyRequestForm rob("robot");
         // rob.beSigned(b)
         PresidentialPardonForm pres("mr macron");
         // rob.beSigned(b);
         // rob.execute(b);
-        // rob.execute(b);
-        // rob.execute(b);
-        // rob.execute(b);
-        b.executeForm(sh);
-        b.executeForm(rob);
-        b.executeForm(pres);
+        // b.executeForm(sh);
+        // b.executeForm(rob);
+        // b.executeForm(pres);
     }
     catch(const std::exception& e)
     {

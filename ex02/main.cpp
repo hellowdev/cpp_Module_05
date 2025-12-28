@@ -46,7 +46,6 @@ int main()
         burr.executeForm(pres);
         Bureaucrat burr2("burr", 10);
         burr2.executeForm(pres);
-
     }
     catch(const std::exception& e)
     {

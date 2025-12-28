@@ -15,8 +15,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& original) : name(original.name), grade(
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& original)
 {
-    if (this != &original)
-        this->grade = original.grade;
+    this->grade = original.grade;
     return *this;
 }
 
@@ -74,7 +73,7 @@ void Bureaucrat::executeForm(AForm const & form) const
         form.execute(*this);
         std::cout << getName() << " executed " << form.getName() << '\n';
     }
-    catch(const std::exception& e)
+    catch(std::exception& e)
     {
         std::cerr << getName() << " couldn't execute " << form.getName() << " reason: " << e.what() << '\n';
     }

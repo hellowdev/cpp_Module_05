@@ -1,5 +1,4 @@
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#pragma once
 #include <iostream>
 #include <cstdlib>
 #include "Form.hpp"
@@ -33,4 +32,3 @@ class Bureaucrat
 };
 
 std::ostream& operator<<(std::ostream& COUT, const Bureaucrat& myobj);
-#endif

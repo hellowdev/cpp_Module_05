@@ -1,5 +1,4 @@
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#pragma once
 #include <iostream>
 #include <cstdlib>
 #include "AForm.hpp"
@@ -14,7 +13,6 @@ class Bureaucrat
         Bureaucrat(const Bureaucrat& original);
         Bureaucrat& operator=(const Bureaucrat& original);
         Bureaucrat(std::string newName, int in_grade);
-        std::string getName() const;
         class GradeTooHighException : public std::exception 
         {
             public:
@@ -27,6 +25,7 @@ class Bureaucrat
         };
         int getGrade() const;
         void signForm(AForm &form);
+        std::string getName() const;
         void betterGrade();
         void worseGrade();
         void executeForm(AForm const & form) const;
@@ -34,4 +33,3 @@ class Bureaucrat
 };
 
 std::ostream& operator<<(std::ostream& COUT, const Bureaucrat& myobj);
-#endif

@@ -14,7 +14,6 @@ class Bureaucrat
         Bureaucrat(const Bureaucrat& original);
         Bureaucrat& operator=(const Bureaucrat& original);
         Bureaucrat(std::string newName, int in_grade);
-        std::string getName() const;
         class GradeTooHighException : public std::exception 
         {
             public:
@@ -25,6 +24,7 @@ class Bureaucrat
             public:
                 const char* what() const throw();
         };
+        std::string getName() const;
         int getGrade() const;
         void signForm(Form &form);
         void betterGrade();

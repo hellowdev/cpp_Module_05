@@ -6,36 +6,53 @@
 
 int main()
 {
+   
     try
     {
-        Bureaucrat b("Burr", 1);
+        std::cout << "--------TEST SHRUBBERY------------\n";
+        Bureaucrat burr("burr", 137);
+        ShrubberyCreationForm shrub("myshrub");
         
-        // ShrubberyCreationForm sh("mytargetFile");
-        // std::cout << sh.getSigned() << '\n';
-        // ShrubberyCreationForm be(sh);
-        // b.signForm(be);
-        // std::cout << sh.getSigned() << '\n';
-        // sh = be;
-        // std::cout << sh.getSigned() << '\n';
-        // sh.execute(b);
+        shrub.beSigned(burr);
+        burr.executeForm(shrub);
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        std::cout << "------TEST ROBOT------------\n";
+        Bureaucrat burr("burr", 45);
+        RobotomyRequestForm robot("myRobot");
         
-        ShrubberyCreationForm sh("alice");
-        sh.beSigned(b);
-        b.executeForm(sh);
-        sh.execute(b);
-        RobotomyRequestForm rob("robot");
-        // rob.beSigned(b)
-        PresidentialPardonForm pres("mr macron");
-        // rob.beSigned(b);
-        // rob.execute(b);
-        // b.executeForm(sh);
-        // b.executeForm(rob);
-        // b.executeForm(pres);
+        robot.beSigned(burr);
+        burr.executeForm(robot);
+        robot.execute(burr);
+        robot.execute(burr);
+        robot.execute(burr);
+
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        std::cout << "------TEST PRESIDENT------------\n";
+        Bureaucrat burr("burr", 5);
+        PresidentialPardonForm pres("myPresident");
+        pres.beSigned(burr);
+        burr.executeForm(pres);
+        Bureaucrat burr2("burr", 10);
+        burr2.executeForm(pres);
+
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
+    
     
     
     

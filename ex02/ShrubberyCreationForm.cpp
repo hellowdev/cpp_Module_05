@@ -7,6 +7,18 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery", 145, 137)
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery", 145, 137), myTarget(target)
 {
 }
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& original) : AForm(original), myTarget(original.myTarget)
+{
+}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& original)
+{
+	AForm::operator=(original);
+	this->myTarget = original.myTarget;
+	return *this;
+}
+
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if (!getSigned())
@@ -35,16 +47,6 @@ const char *ShrubberyCreationForm::notSigned::what() const throw()
     return "Shrubbery Form Not Signed!";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& original) : AForm(original), myTarget(original.myTarget)
-{
-}
-
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& original)
-{
-	AForm::operator=(original);
-	this->myTarget = original.myTarget;
-	return *this;
-}
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {

@@ -13,8 +13,7 @@ class Form
         Form();
         Form(std::string newName, int signG, int executeG);
         Form(const Form& original);
-        bool getSigned() const;
-        Form& operator=(const Form& original); // Only copies _signed status   
+        Form& operator=(const Form& original);
         class GradeTooHighException : public std::exception 
         {
             public:
@@ -27,6 +26,7 @@ class Form
         };
         int getSignGrade() const;
         int getexecGrade() const;
+        bool getSigned() const;
         std::string getName() const;
         void beSigned(Bureaucrat& obj);
     ~Form();

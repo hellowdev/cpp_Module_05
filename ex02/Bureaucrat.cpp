@@ -74,7 +74,7 @@ void Bureaucrat::executeForm(AForm const & form) const
         form.execute(*this);
         std::cout << getName() << " executed " << form.getName() << '\n';
     }
-    catch(const std::exception& e)
+    catch(std::exception& e)
     {
         std::cerr << getName() << " couldn't execute " << form.getName() << " reason: " << e.what() << '\n';
     }
@@ -83,7 +83,7 @@ void Bureaucrat::executeForm(AForm const & form) const
 
 std::ostream& operator<<(std::ostream& COUT, const Bureaucrat& myobj)
 {
-    COUT << myobj.getName() << ", bureaucrat grade " << myobj.getGrade() << '\n';
+    COUT << myobj.getName() << ", bureaucrat grade " << myobj.getGrade();
     return COUT;
 }
 

@@ -19,10 +19,6 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
   return *this;
 }
 
-const char *PresidentialPardonForm::notSigned::what() const throw()
-{
-  return "Presidential Form Not Signed!";
-}
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {   
     if (!getSigned())
@@ -30,6 +26,11 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
     else if (getexecGrade() < executor.getGrade())
       throw GradeTooLowException();
     std::cout << myTarget << "has been pardoned by Zaphod Beeblebrox\n";
+}
+
+const char *PresidentialPardonForm::notSigned::what() const throw()
+{
+  return "Presidential Form Not Signed!";
 }
 PresidentialPardonForm::~PresidentialPardonForm()
 {}

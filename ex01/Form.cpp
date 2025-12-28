@@ -9,8 +9,8 @@ Form::Form(std::string newName, int signG, int executeG) : name(newName), _signe
 		throw GradeTooHighException();
 	else if (signGrade > 150 || executeGrade > 150)
 		throw GradeTooLowException();
-	
 }
+
 Form::Form(const Form& original) : name(original.name), _signed(original._signed), signGrade(original.signGrade), executeGrade(original.executeGrade){}
 Form& Form::operator=(const Form& original)
 {
@@ -55,10 +55,11 @@ bool Form::getSigned() const
 {
 	return _signed;
 }
+
 std::ostream& operator<<(std::ostream& COUT, const Form& myobj)
 {
 	COUT << myobj.getName() << ", Sign grade: " << myobj.getSignGrade()
-	<< " Signature Form: " << myobj.getSigned() << " execute Grade: " << myobj.getexecGrade() << '\n';
+	<< ", Signature Form: " << myobj.getSigned() << ", Execute Grade: " << myobj.getexecGrade();
 	return COUT;
 }
 

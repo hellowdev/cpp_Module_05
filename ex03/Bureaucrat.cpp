@@ -83,7 +83,7 @@ void Bureaucrat::executeForm(AForm const & form) const
 
 std::ostream& operator<<(std::ostream& COUT, const Bureaucrat& myobj)
 {
-    COUT << myobj.getName() << ", bureaucrat grade " << myobj.getGrade() << '\n';
+    COUT << myobj.getName() << ", bureaucrat grade " << myobj.getGrade();
     return COUT;
 }
 

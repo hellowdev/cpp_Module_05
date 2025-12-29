@@ -18,12 +18,12 @@ Form& Form::operator=(const Form& original)
 	return *this;
 }
 
-const char* Form::GradeTooHighException:: what() const throw()
+const char* Form::GradeTooHighException::what() const throw()
 {
 	return "Grade is too high!";
 }
 
-const char* Form::GradeTooLowException:: what() const throw()
+const char* Form::GradeTooLowException::what() const throw()
 {
 	return "Grade is too low!";
 }
